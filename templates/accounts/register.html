@@ -1,0 +1,41 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+<div class="box">
+<h1>Register Page</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    
+    
+    <div>
+        <label class="form-label" for="">Username</label>
+        {{ form.username }}
+    </div><br>
+    
+    <div>
+        <label class="form-label" for="">Email</label>
+        {{ form.email }}
+    </div><br>
+    
+    <div>
+        <label class="form-label" for="">Password</label>
+        {{ form.password1 }}
+    </div><br>
+    
+    <div>
+        <label class="form-label" for="">Confirm password</label>
+        {{ form.password2 }}
+    </div><br>
+    
+    <input type="submit" value="Register"> 
+    <a class="cancel" href="{% url 'tasks' %}">Cancel</a> 
+    
+</form>
+
+    <div class="form-label">{{ form.errors }}</div>
+
+    <p class="form-label">Already have an account? <a class="redirect-label" href="{% url 'login' %}">Login</a></p>
+</div>
+
+{% endblock content %}

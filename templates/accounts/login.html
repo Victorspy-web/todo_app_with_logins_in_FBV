@@ -1,0 +1,36 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+
+<div class="box">
+
+<h1>Login Page</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    
+    <div>
+        <label class="form-label" for="">Username</label>
+        <input type="text" name="username" id="" required>
+    </div><br>
+    
+    <div>
+        <label class="form-label" for="">Password</label>
+        <input type="password" name="password" id="" required>
+    </div><br>
+    
+    <input type="submit" name="" id=""> 
+    <a class="cancel" href="{% url 'tasks' %}">Cancel</a> 
+    
+    
+</form>
+
+{% for message in messages %}
+<div class="form-label">{{ message }}</div>
+{% endfor %}
+
+<p class="form-label">Don't have an account? <a class="redirect-label" href="{% url 'register' %}">Register</a></p>
+
+</div>
+
+{% endblock content %}

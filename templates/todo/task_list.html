@@ -1,0 +1,38 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+    <h2>Hello, {{request.user|title}}! <a class="log-link" href="{% url 'logout' %}">Logout..</a></h2>
+{% else %}
+    <h2><a class="log-link" href="{% url 'login' %}">Login</a></h2>
+{% endif %}
+
+    <h1 class="title">Tasks Home Page</h1>
+
+    <a class="nav-link" href="{% url 'task-create' %}">+Add Tasks</a>
+    <br><br><br>
+    <hr>
+
+{% if request.user.is_authenticated %}
+    {% for task in tasks %}
+        {% if task.complete %}
+            <h2 class="task-list"><strike>{{ task }}</strike></h2>
+        {% else %}
+            <h2 class="task-list">{{ task }}</h2>
+        {% endif %}
+
+        <a class="down-nav-link" href="{% url 'task-detail' task.pk %}">View</a>
+        <a class="down-nav-link" href="{% url 'task-update' task.pk %}">Update</a>
+        <a class="down-nav-link" href="{% url 'task-delete' task.pk %}">Delete</a>
+        <br><br>
+        <hr>
+
+    {% empty %}
+        <h2>No tasks available!</h2>
+    {% endfor %}
+{% else %}
+    <h3>You are not seeing any task because you are not logged in!</h3>
+{% endif %}
+
+{% endblock content %}

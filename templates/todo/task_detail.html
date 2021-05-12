@@ -1,0 +1,17 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+
+<h1 class="title">Task Details Page</h1>
+
+<h2 class="task-detail">Title : {{ task.title }}</h2><br><hr>
+<h3 class="task-detail">Description : {{ task.description }}</h3><br><hr>
+{% if task.complete %}
+    <h3 class="task-detail">Completed: Yes</h3><br><hr>
+{% else %}
+    <h3 class="task-detail">Completed: No</h3><br><hr>
+{% endif %}
+
+<a class="nav-link" href="{% url 'tasks' %}">Back to tasks</a>
+
+{% endblock content %}

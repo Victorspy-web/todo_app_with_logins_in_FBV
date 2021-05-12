@@ -1,0 +1,14 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+
+<h1 class="title">Delete Page</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <h2>Are you sure you want to delete <i>"{{ task }}"</i>?</h2>
+    <input type="submit" class="cancel" value="Comfirm" name="" id=""> 
+    <a class="cancel" href="{% url 'tasks' %}">Cancel</a>
+</form>
+
+{% endblock content %}

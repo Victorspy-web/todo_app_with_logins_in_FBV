@@ -1,0 +1,15 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+
+<form class="form-box" action="" method="post">
+    <h1 class="title">Task Update Page</h1>
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="submit-cancel"><input class="cancel" type="submit" value="Update">
+
+    <a class="cancel" href="{% url 'tasks' %}">Cancel</a></div>
+</form>
+
+{% endblock content %}
