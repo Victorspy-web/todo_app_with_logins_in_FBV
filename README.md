@@ -19,7 +19,7 @@ Check requirements.txt for packages to install
 First clone the repository from Github and switch to the project directory
 ```
 
-* git clone git@github.com/USERNAME/{{ project_name }}.git
+* git `git remote add origin https://github.com/Victorspy-web/todo_app_with_logins_in_FBV.git`
 
 ```
 Open terminal and install pipenv for your project
